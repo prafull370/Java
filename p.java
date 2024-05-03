@@ -1,13 +1,22 @@
-import java.util.*;
-public class p{
-    public static void main(String[] args){
-        Scanner sc=new Scanner(System.in);
-        System.out.print("Enter your number: ");
-        int n=sc.nextInt();
-        if(n%3==0||n%5==0){
-            System.out.println("Nmuber is divisible by 3 and 5.");
+public class p {
+
+   int i,j,count;
+   for(i=0;i<10;i++)
+    {
+        if (i == 0 || i == 1) {
+            continue;
         }
-        else
-        System.out.println("number is not divisible.git");
+        count = 1;
+        for (j = 2; j < i; j++) {
+            if (i % j == 0) {
+                count++;
+            }
+        }
+        if (count == 1) {
+            System.out.print("%d "+ i);
+
+        }
     }
+
+    return 0;
 }
