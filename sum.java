@@ -1,13 +1,22 @@
 import java.util.*;
 public class sum{
-    public static void main(String[] args){
+        public static void main(String[] args){
         Scanner sc=new Scanner(System.in);
-        System.out.print("Enter first number:");
+        System.out.println("Enter erray size:");
         int n=sc.nextInt();
-        System.out.print("Enter second number:");
-        int m=sc.nextInt();
-        int sum=n+m;
-        System.out.print("Sum is:"+sum);
+        int b[]=new int[n];
+        int sum=new int();
+        System.out.print("Enter your array number:");
+        // int n=sc.nextInt();
+        // sum.b=new sum();
+        for(int i=0;i<b.length;i++){
+           b[i]=sc.nextInt();
 
+        }
+        for(int i=0;i<b.length;i++){
+            int sum=0;
+            sum +=b[i];
+        }
+        System.out.print("Sum is:"+sum);
     }
 }
