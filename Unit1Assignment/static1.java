@@ -11,6 +11,8 @@ public class static1 {
         System.out.println(a);
     }
     public static void main(String args[]){
+        System.out.println("Prafull kumar");
+        System.out.println("MCA-C");
         // static1 o=new static1();
         // o.m();
         static1.m();

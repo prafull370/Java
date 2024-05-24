@@ -20,6 +20,8 @@ public class Room {
     }
 
     public static void main(String[] args) {
+        System.out.println("Prafull kumar");
+        System.out.println("MCA-c");
         Room room1 = new Room();
         room1.setData(10, "aa", 5.5, false);
         room1.displayData();
