@@ -1,6 +1,6 @@
 package OasisProject;
 
-    import java.util.Scanner;
+	import java.util.Scanner;
 
 class BankAccount{
 	String name;
