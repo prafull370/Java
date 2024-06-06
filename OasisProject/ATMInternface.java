@@ -92,25 +92,24 @@ class BankAccount {
 		float amount = sc.nextFloat();
 		try {
 			if (balance >= amount) {
-				if (amount<=50000f) {
+				if (amount <= 50000f) {
 					transaction++;
 					balance -= amount;
-					System.out.println("\n Transfer Successful to."+receipent);
-					String str = amount + "Rs tranfers to"+ receipent+"\n";
+					System.out.println("\n Transfer Successful to." + receipent);
+					String str = amount + "Rs tranfers to" + receipent + "\n";
 					transactionHistory = transactionHistory.concat(str);
 				} else {
 					System.out.println("\nLimit is 50000.");
 				}
-			}
-			else{
+			} else {
 				System.out.println("\nInsufficient balance.");
 			}
 		} catch (Exception e) {
 		}
 	}
 
-	public void checkBalance(){
-		System.out.println("\nYour Balance:"+balance+"Rs");
+	public void checkBalance() {
+		System.out.println("\nYour Balance:" + balance + "Rs");
 	}
 
 	public void transHistory() {
@@ -123,62 +122,83 @@ class BankAccount {
 }
 
 public class ATMInternface {
-    public static int takenIntegerInput(int limit){
-        int input=0;
-		boolean flag=false;
+	public static int takenIntegerInput(int limit) {
+		int input = 0;
+		boolean flag = false;
 
 		while (!flag) {
-			try{
-                Scanner sc=new Scanner(System.in);
-				input=sc.nextInt();
-				flag=true;
-				if(flag&&input>limit||input<1){
-                System.out.println("Choosse the number between 1 to "+limit);
-				flag=false;
+			try {
+				Scanner sc = new Scanner(System.in);
+				input = sc.nextInt();
+				flag = true;
+				if (flag && input > limit || input < 1) {
+					System.out.println("Choosse the number between 1 to " + limit);
+					flag = false;
 				}
-			}
-			catch(Exception e){
-                    System.out.println("Enter only integer value.");
-					flag=false;
+			} catch (Exception e) {
+				System.out.println("Enter only integer value.");
+				flag = false;
 			}
 		}
 		return input;
 	}
-	public static void main(String[] args){
+
+	public static void main(String[] args) {
 		System.out.println("\n***Welcome To NAtive ATM INTERFACE***");
 		System.out.println("\n1.For register\n2. For Exit. ");
 		System.out.println("Choose one option: ");
-		int choose=takenIntegerInput(2);
+		int choose = takenIntegerInput(2);
 
-		if(choose==1){
-			BankAccount b=new BankAccount();
+		if (choose == 1) {
+			BankAccount b = new BankAccount();
 			b.register();
-			while(true){				
-		System.out.println("\n***Welcome To NAtive ATM INTERFACE***");
-		System.out.println("1.Login\n2. For Exit. ");
-		System.out.println("Enter your choice: ");
-		int ch=takenIntegerInput(2);
-		if(ch==1){
-			if(b.login()){
-				System.out.println("\nWelcome Back"+b.name+"  ");
-				boolean isFinished=false;
-				while (!isFinished) {
-					System.out.println("\n1.Withdraw \n 2. Deposit\n3.Tranfer \n4. check Balance\n5. Check Transaction History \n6.Exit");
-					System.out.println("Enter your choice:");
-					int c=takenIntegerInput(2);
-					switch (c) {
-						case 1:
-							
-							break;
-					
-						default:
-							break;
+			while (true) {
+				// System.out.println("\n***Welcome To NAtive ATM INTERFACE***");
+				System.out.println("1.Login\n2. For Exit. ");
+				System.out.println("Enter your choice: ");
+				int ch = takenIntegerInput(2);
+				if (ch == 1) {
+					if (b.login()) {
+						System.out.println("\nWelcome Back" + b.name + "  ");
+						boolean isFinished = false;
+						while (!isFinished) {
+							System.out.println(
+									"\n1.Withdraw \n 2. Deposit\n3.Tranfer \n4. check Balance\n5. Check Transaction History \n6.Exit");
+							System.out.println("Enter your choice:");
+							int c = takenIntegerInput(2);
+							switch (c) {
+								case 1:
+									b.withdraw();
+									break;
+								case 2:
+									b.deposit();
+									break;
+								case 3:
+									b.transfer();
+									break;
+								case 4:
+									b.checkBalance();
+									break;
+								case 5:
+									b.transHistory();
+									break;
+								case 6:
+									isFinished = true;
+									break;
+								default:
+									break;
+							}
+						}
 					}
+				} else {
+                    System.exit(0);
 				}
+
 			}
 		}
-				
-			}
+		else {
+			System.exit(0);
 		}
+
 	}
 }
