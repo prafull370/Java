@@ -16,5 +16,13 @@ public class MaxAppearence {
     		}
     	}
     	System.out.println(mp.entrySet());
+    	int max=0,anskey=-1;
+    	for(var e:mp.entrySet()) {
+    		if(e.getValue()>max) {
+    			max=e.getValue();
+    			anskey=e.getKey();
+    		}
+    	}
+    	System.out.println("Max freq:%d"+max);
     }
 }
