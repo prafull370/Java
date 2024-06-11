@@ -1,5 +1,3 @@
-package oasisproject;
-
 import java.util.Scanner;
 
 class BankAccount {
